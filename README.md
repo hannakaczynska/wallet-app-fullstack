@@ -162,9 +162,9 @@ The app is fully responsive with breakpoints:
 ## 🚀 Deployment
 
 ### Live Deployment
-- **Frontend**: [https://wallet-app-project.netlify.app](https://wallet-app-project.netlify.app)
-- **Backend API**: [https://wallet-project-app-195afaf0a0a1.herokuapp.com/](https://wallet-project-app-195afaf0a0a1.herokuapp.com/)
-- **API Documentation**: [https://wallet-project-app-195afaf0a0a1.herokuapp.com/api-docs/](https://wallet-project-app-195afaf0a0a1.herokuapp.com/api-docs/)
+- **Frontend**: [View live app](https://wallet-app-project.netlify.app)
+- **Backend API**: [View backend API](https://wallet-project-app-195afaf0a0a1.herokuapp.com/)
+- **API Documentation**: [View API documentation](https://wallet-project-app-195afaf0a0a1.herokuapp.com/api-docs/)
 
 ### Deploy Your Own Instance
 
@@ -227,4 +227,4 @@ This project is licensed under the MIT License.
 
 Hanna Kaczyńska - [hanna.kaczynska.dev@gmail.com](mailto:hanna.kaczynska.dev@gmail.com)
 
-Project Link: [https://github.com/hannakaczynska/WalletApp-react-node](https://github.com/hannakaczynska/WalletApp-react-node)
+Project Link: [Source code](https://github.com/hannakaczynska/wallet-app-fullstack)
