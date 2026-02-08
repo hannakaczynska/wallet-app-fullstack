@@ -1,10 +1,10 @@
 import DesktopNavigation from "../Navigation/DesktopNavigation";
 import Balance from "../Balance/Balance";
 import Current from "../Current/Current";
-import css from "./AppShell.module.css";
+import css from "./MainPanel.module.css";
 import MediaQuery from "react-responsive";
 
-const AppShell = ({ children }) => {
+const MainPanel = ({ children }) => {
   return (
     <>
       <MediaQuery minWidth={768}>
@@ -26,4 +26,4 @@ const AppShell = ({ children }) => {
   );
 };
 
-export default AppShell;
+export default MainPanel;

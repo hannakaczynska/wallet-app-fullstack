@@ -1,5 +1,5 @@
 import MobileNavigation from "../../components/Navigation/MobileNavigation";
-import AppShell from "../../components/AppShell/AppShell";
+import MainPanel from "../../components/MainPanel/MainPanel";
 import Diagram from "../../components/Diagram/Diagram";
 import css from "./DiagramPage.module.css";
 
@@ -7,9 +7,9 @@ const DiagramPage = () => {
   return (
     <div className={css.page}>
       <MobileNavigation />
-      <AppShell>
+      <MainPanel>
         <Diagram />
-      </AppShell>
+      </MainPanel>
     </div>
   );
 };

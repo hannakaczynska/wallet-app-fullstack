@@ -1,7 +1,7 @@
 import Balance from "../../components/Balance/Balance";
 import CashflowList from "../../components/CashflowList/CashflowList";
 import MobileNavigation from "../../components/Navigation/MobileNavigation";
-import AppShell from "../../components/AppShell/AppShell";
+import MainPanel from "../../components/MainPanel/MainPanel";
 import TransactionForm from "../../components/Transaction/Transaction";
 import css from "./HomePage.module.css";
 import MediaQuery from "react-responsive";
@@ -15,7 +15,7 @@ const HomePage = () => {
       <MediaQuery maxWidth={767.5}>
         <Balance />
       </MediaQuery>
-      <AppShell>
+      <MainPanel>
         <CashflowList  />
         <img
           src="/add.svg"
@@ -28,7 +28,7 @@ const HomePage = () => {
             <TransactionForm onItemClick={() => setShowAddTransaction(false)} />
           </div>
         )}
-      </AppShell>
+      </MainPanel>
     </div>
   );
 };
