@@ -212,7 +212,7 @@
 
 @media screen and (min-width: 1280px) {
   .statistics {
-    width: 1248px;
+  width: 1248px;
   justify-content: flex-end;
   }
 

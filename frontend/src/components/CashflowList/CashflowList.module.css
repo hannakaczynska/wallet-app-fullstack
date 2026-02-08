@@ -2,7 +2,6 @@
   width: 280px;
   margin-top: 32px;
   margin-inline: auto;
-  position: relative;
 }
 
 .spinnerContainer {
@@ -10,8 +9,7 @@
   width: 100%;
   display: flex;  
   justify-content: center;
-  align-items: center;
-  
+  align-items: center;  
 }
 
 .list {
@@ -120,9 +118,12 @@
   .tablet {
     display: block;
   }
+
   .listContainer {
     margin-top: 20px;
     width: 704px;
+    display: flex;
+    flex-direction: column;
   }
 
   .header {
@@ -245,6 +246,12 @@
     width: 1248px;
     margin-top: 46px;
     padding-top: 40px;
+  }
+
+  .spinnerContainer,
+  .tablet { 
+    width: 714px;
+    margin-left: auto;
   }
 
   .tabletItem {

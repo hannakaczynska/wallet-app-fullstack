@@ -4,11 +4,13 @@
   flex-direction: column;
   gap: 13px;
   height: 66px;
+  z-index: 10;
 }
 
 .navItem {
   width: 38px;
   height: 38px;
+  cursor: pointer;
 }
 
 .container {

@@ -7,8 +7,9 @@ const DiagramPage = () => {
   return (
     <div className={css.page}>
       <MobileNavigation />
-      <AppShell />
-      <Diagram />
+      <AppShell>
+        <Diagram />
+      </AppShell>
     </div>
   );
 };

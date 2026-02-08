@@ -15,19 +15,20 @@ const HomePage = () => {
       <MediaQuery maxWidth={767.5}>
         <Balance />
       </MediaQuery>
-      <AppShell />
-      <CashflowList />
-      <img
-        src="/add.svg"
-        alt="Add"
-        className={css.addIcon}
-        onClick={() => setShowAddTransaction(true)}
-      />
-      {showAddTransaction && (
-        <div className={css.transactionForm}>
-          <TransactionForm onItemClick={() => setShowAddTransaction(false)} />
-        </div>
-      )}
+      <AppShell>
+        <CashflowList  />
+        <img
+          src="/add.svg"
+          alt="Add"
+          className={css.addIcon}
+          onClick={() => setShowAddTransaction(true)}
+        />
+        {showAddTransaction && (
+          <div className={css.transactionForm}>
+            <TransactionForm onItemClick={() => setShowAddTransaction(false)} />
+          </div>
+        )}
+      </AppShell>
     </div>
   );
 };
