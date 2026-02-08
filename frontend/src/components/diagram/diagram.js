@@ -122,14 +122,7 @@ const Diagram = () => {
         <div className={css.buttons}>
             <button className={css.button} onClick={handleMonthClick}>
             {selectedMonth}
-            <svg
-              className={css.arrow}
-              viewBox="0 0 20 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M1 1L10 10L19 1" stroke="black" />
-            </svg>
+            <img src="/arrow-down.svg" alt="" className={css.arrow} />
             {showMonthList && (
               <div className={css.listContainer}>
                 <List data={monthOptions} onItemClick={handleMonthSelect} />
@@ -138,14 +131,7 @@ const Diagram = () => {
           </button>
           <button className={css.button} onClick={handleYearClick}>
             {selectedYear}
-            <svg
-              className={css.arrow}
-              viewBox="0 0 20 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M1 1L10 10L19 1" stroke="black" />
-            </svg>
+            <img src="/arrow-down.svg" alt="" className={css.arrow} />
             {showYearList && (
               <div className={css.listContainer}>
               <List data={yearOptions} onItemClick={handleYearSelect} />
