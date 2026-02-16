@@ -17,29 +17,14 @@ export const registerUser = createAsyncThunk(
   "user/register",
   async (userData, { dispatch, rejectWithValue }) => {
     try {
-      dispatch(setLoading(true));
       const response = await api.post("/register", userData);
-      if (response.status === 409) {
-        dispatch(setError("Email already in use"));
-        dispatch(setIsAuth(false));
-        dispatch(setLoading(false));
-        return rejectWithValue("Email already in use");
-      }
       const { token, refreshToken, email, name, id, balance } =
         response.data.data;
-      dispatch(setIsAuth(true));
-      dispatch(setError(null));
-      dispatch(setUser({ email, name, id }));
-      dispatch(setToken(token));
-      dispatch(setRefreshToken(refreshToken));
-      dispatch(setBalance(balance));
-      dispatch(setLoading(false));
       return response.data.data;
     } catch (error) {
-      dispatch(setIsAuth(false));
-      dispatch(setError("Registration failed"));
-      dispatch(setLoading(false));
-      console.error("Error registering user:", error);
+      if(error.response?.status === 409) {
+         return rejectWithValue("Email already in use");
+      }
       return rejectWithValue("Registration failed");
     }
   }
@@ -47,32 +32,21 @@ export const registerUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
   "user/login",
-  async (userData, { dispatch, rejectWithValue }) => {
+  async (userData, { rejectWithValue }) => {
     try {
-      dispatch(setLoading(true));
       const response = await api.post("/login", userData);
-      if (response.status === 401) {
-        dispatch(setError("Invalid email or password"));
-        dispatch(setIsAuth(false));
-        dispatch(setLoading(false));
+      const { token, refreshToken, email, name, id, balance } = response.data.data;
+      return { 
+        user: { email, name, id }, 
+        token, 
+        refreshToken, 
+        balance 
+      };
+    } catch (error) {
+      if (error.response?.status === 401) {
         return rejectWithValue("Invalid email or password");
       }
-      const { token, refreshToken, email, name, id, balance } =
-        response.data.data;
-      dispatch(setIsAuth(true));
-      dispatch(setError(null));
-      dispatch(setUser({ email, name, id }));
-      dispatch(setToken(token));
-      dispatch(setRefreshToken(refreshToken));
-      dispatch(setBalance(balance));
-      dispatch(setLoading(false));
-      return response.data.data;
-    } catch (error) {
-      dispatch(setIsAuth(false));
-      dispatch(setError("Login failed"));
-      dispatch(setLoading(false));
-      console.error("Error logging in user:", error);
-      return rejectWithValue(error.response?.data || "Login failed");
+      throw error;
     }
   }
 );

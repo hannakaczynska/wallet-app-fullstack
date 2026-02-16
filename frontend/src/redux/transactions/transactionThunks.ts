@@ -21,7 +21,7 @@ export const fetchTransactions = createAsyncThunk(
         userId,
       },
     });
-    console.log(response.data.data.transactions);
+
     return {
       transactions: response.data.data.transactions,
       hasMore: response.data.data.transactions.length >= limit,
