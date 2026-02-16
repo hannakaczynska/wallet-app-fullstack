@@ -52,7 +52,7 @@ const CashflowList = () => {
   };
 
   const handleConfirmDelete = async () => {
-    dispatch(deleteTransaction(transactionId, userId));
+    dispatch(deleteTransaction({ id: transactionId, userId }));
     deleteDialogRef.current.close();
   };
 

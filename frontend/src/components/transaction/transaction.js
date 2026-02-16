@@ -20,7 +20,7 @@ import { categoryOptions } from "../../constants/constants";
 
 const TransactionForm = ({ onItemClick, isEditing, type, transactionId }) => {
   const dispatch = useDispatch();
-   const userId = useSelector((state) => state.session.user.id);
+  const userId = useSelector((state) => state.session.user.id);
   const [isIncome, setIsIncome] = useState(
     isEditing ? (type === "income" ? true : false) : true
   );
@@ -110,11 +110,23 @@ const TransactionForm = ({ onItemClick, isEditing, type, transactionId }) => {
 
     try {
       if (isEditing) {
-        dispatch(editTransaction(transactionId, userId, transactionData));
-        toast.success("Transaction updated successfully!");
+        const result = await dispatch(editTransaction({ 
+          id: transactionId, 
+          userId, 
+          updatedTransaction: transactionData 
+        }));
+        if (editTransaction.fulfilled.match(result)) {
+          toast.success("Transaction updated successfully!");
+        } else {
+          throw new Error("Failed to update transaction");
+        }
       } else {
-        dispatch(addTransaction(transactionData));
-        toast.success("Transaction added successfully!");
+        const result = await dispatch(addTransaction(transactionData));
+        if (addTransaction.fulfilled.match(result)) {
+          toast.success("Transaction added successfully!");
+        } else {
+          throw new Error("Failed to add transaction");
+        }
       }
       setTimeout(() => {
         handleModalClose();
